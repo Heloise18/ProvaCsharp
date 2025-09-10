@@ -6,8 +6,9 @@ public class Trip
     public string Title { get; set; }
     public string Description { get; set; }
     public Guid OwnerID { get; set; }
+    public string Owner { get; set; }
     public User Users { get; set; }
-
+    
     public ICollection<Place> Attractions = [];
     public ICollection<PlaceTrip> intermediaria = [];
 
