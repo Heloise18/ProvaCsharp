@@ -8,7 +8,6 @@ public class User
     public Guid Password { get; set; }
 
     public ICollection<Trip> Trips = [];
-    public ICollection<Place> Places = [];
 
 
 }

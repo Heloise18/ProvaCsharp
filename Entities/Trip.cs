@@ -9,5 +9,7 @@ public class Trip
     public User Users { get; set; }
 
     public ICollection<Place> Attractions = [];
+    public ICollection<PlaceTrip> intermediaria = [];
+
 
 }

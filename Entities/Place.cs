@@ -4,7 +4,7 @@ public class Place
 {
     public Guid ID { get; set; }
     public string Title { get; set; }
-    public Trip Trips { get; set; }
 
-    public ICollection<User> Users = [];
+    public ICollection<Trip> Trips = [];
+    public ICollection<PlaceTrip> intermediaria = [];
 }
