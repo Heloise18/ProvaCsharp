@@ -17,7 +17,7 @@ public class CreateTripUseCase (
     //     ctx.Trips.Add(trip);
     //     await ctx.SaveChangesAsync();
 
-    //     return Result<CreateTripResponse>.Success();
+         return Result<CreateTripResponse>.Success(null);
     }
 
 }
