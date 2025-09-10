@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace Prova.Entities;
 
@@ -42,3 +43,17 @@ public class PlanDbContext(DbContextOptions options) : DbContext(options)
 
 
 //Um visitante pode ter muitas listas salvas e as listas tem muitos pontos e os pontos podem estar em muitas listas
+
+
+
+
+public class RPlaceDbContextFactory : IDesignTimeDbContextFactory<PlanDbContext>
+{
+    public PlanDbContext CreateDbContext(string[] args)
+    {
+        var options = new DbContextOptionsBuilder<PlanDbContext>();
+        var sqlConn = Environment.GetEnvironmentVariable("SQL_CONNECTION");
+        options.UseSqlServer(sqlConn);
+        return new PlanDbContext(options.Options);
+    }
+}
