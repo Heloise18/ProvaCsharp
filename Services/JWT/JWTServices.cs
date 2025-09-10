@@ -2,11 +2,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using prova.Payload;
 using Prova.Entities;
 
 public class JWTService : IJWTService
 {
-    public string CreateToken(User data)
+    public string CreateToken(UserData data)
     {
         var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET");
         var keyBytes = Encoding.UTF8.GetBytes(jwtSecret);
@@ -15,7 +16,7 @@ public class JWTService : IJWTService
         var jwt = new JwtSecurityToken(
             claims: [
 
-                new Claim(ClaimTypes.NameIdentifier, data.ID.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, data.UserId.ToString()),
 
                 new Claim(ClaimTypes.Name, data.Username)
             ],
@@ -28,4 +29,6 @@ public class JWTService : IJWTService
         var handler = new JwtSecurityTokenHandler();
         return handler.WriteToken(jwt);
     }
+
+
 }
