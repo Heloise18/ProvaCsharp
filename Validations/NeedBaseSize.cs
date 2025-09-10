@@ -9,10 +9,10 @@ public class NeedBaseSizeAttribute : ValidationAttribute
     {
         if (!(value is string text))
             return false;
+       
         int chars = text.Length;
 
-        if (chars >= 40 && chars <= 200)
-            return true;
+        return chars >= 40 && chars <= 200;
     }
     public override string FormatErrorMessage(string name)
         => $"The field '{name}' cant exceed min 40 and max 200 chars ";
